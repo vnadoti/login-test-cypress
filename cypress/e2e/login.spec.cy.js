@@ -1,10 +1,12 @@
+
+import userData from '../fixtures/userData.json'
+
 describe('Login Tests', () => {
     
+ // Objetos de Seletores e Credenciais 
   const selectorList = { 
     usernameField: "[name='username']", 
-    usernameValid: "Admin",
     passwordField: "[name='password']", 
-    passwordValid: "admin123",
     loginButton: "[type='submit']",
     wrongAlert: "[role='alert']",
     dashboardGrid: ".orangehrm-dashboard-grid",
@@ -17,8 +19,8 @@ describe('Login Tests', () => {
 
   it('Login - Sucess', () => {
     // Preenche Usuário e Senha Válido
-    cy.get(selectorList.usernameField).type(selectorList.usernameValid)
-    cy.get(selectorList.passwordField).type(selectorList.passwordValid)
+    cy.get(selectorList.usernameField).type(userData.userSucess.username)
+    cy.get(selectorList.passwordField).type(userData.userSucess.password)
     //Clica no botão de login
     cy.get(selectorList.loginButton).click()
     // Verifica se redirecionou corretamente para o dashboard
@@ -29,8 +31,8 @@ describe('Login Tests', () => {
   
   it('Login Credenciais Erradas - Fail', () => {
     // Insere credenciais e submete o formulario
-    cy.get(selectorList.usernameField).type(selectorList.usernameValid)
-    cy.get(selectorList.passwordField).type("admin12345678")
+    cy.get(selectorList.usernameField).type(userData.userFail.username)
+    cy.get(selectorList.passwordField).type(userData.userFail.password)
     cy.get(selectorList.loginButton).click()
     // Verifica se Aparece o Alerta de Erro
     cy.get(selectorList.wrongAlert)
@@ -52,8 +54,8 @@ describe('Login Tests', () => {
 
   it('Login sem preencher usuário valido - Fail', () => { 
     // Insere credenciais e submete o formulario
-    cy.get(selectorList.usernameField).type('Admilson')
-    cy.get(selectorList.passwordField).type(selectorList.passwordValid)
+    cy.get(selectorList.usernameField).type(userData.userFail.username)
+    cy.get(selectorList.passwordField).type(userData.userSucess.password)
     cy.get(selectorList.loginButton).click()
     // Verifica se Aparece o Alerta de Erro
     cy.get(selectorList.wrongAlert)
@@ -61,8 +63,8 @@ describe('Login Tests', () => {
   
   it('Login sem preencher senha valida - Fail', () => { 
     // Insere credenciais e submete o formulario
-    cy.get(selectorList.usernameField).type(selectorList.usernameValid)
-    cy.get(selectorList.passwordField).type('errorpassword')
+    cy.get(selectorList.usernameField).type(userData.userSucess.username)
+    cy.get(selectorList.passwordField).type(userData.userFail.password)
     cy.get(selectorList.loginButton).click()
     // Verifica se Aparece o Alerta de Erro
     cy.get(selectorList.wrongAlert)
