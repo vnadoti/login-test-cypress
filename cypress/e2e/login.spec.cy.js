@@ -7,6 +7,7 @@ describe('Login Tests', () => {
     passwordValid: "admin123",
     loginButton: "[type='submit']",
     wrongAlert: "[role='alert']",
+    dashboardGrid: ".orangehrm-dashboard-grid",
   }
   
   // Acessar a URl da Página a ser Testada
@@ -23,7 +24,7 @@ describe('Login Tests', () => {
     // Verifica se redirecionou corretamente para o dashboard
     cy.url().should('include', '/dashboard')
     // Verifica se o Titulo da página é Dashboard
-    cy.get('.oxd-topbar-header-breadcrumb-module').contains('Dashboard')
+    cy.get(selectorList.dashboardGrid)  
   })
   
   it('Login Credenciais Erradas - Fail', () => {
