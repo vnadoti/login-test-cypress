@@ -14,8 +14,8 @@ describe('Login Tests', () => {
   
   // Acessar a URl da Página a ser Testada
   beforeEach('Acessar a Página', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-  })
+    cy.visit('/auth/login')
+  }) 
 
   it('Login - Sucess', () => {
     // Preenche Usuário e Senha Válido
