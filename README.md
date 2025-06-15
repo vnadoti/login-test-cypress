@@ -5,8 +5,7 @@
 Bem-vindo(a) ao repositório de testes automatizados utilizando o [Cypress](https://www.cypress.io/) 🚀
 Este projeto tem como objetivo validar funcionalidades essenciais da aplicação de forma rápida, confiável e contínua.
 
-
-![PrintScreen do Projeto no Visual Studio Core](https://ibb.co/nMvfHv8T)
+<img src="https://ibb.co/nMvfHv8T" alt="PrintScreen do Projeto no Visual Studio Core">
 
 ---
 
