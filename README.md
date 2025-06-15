@@ -5,6 +5,9 @@
 Bem-vindo(a) ao repositório de testes automatizados utilizando o [Cypress](https://www.cypress.io/) 🚀
 Este projeto tem como objetivo validar funcionalidades essenciais da aplicação de forma rápida, confiável e contínua.
 
+
+![PrintScreen do Projeto no Visual Studio Core](https://ibb.co/nMvfHv8T)
+
 ---
 
 ## 🧰 Tecnologias Utilizadas
@@ -20,10 +23,11 @@ Este projeto tem como objetivo validar funcionalidades essenciais da aplicação
 Os testes atualmente cobrem os seguintes cenários:
 
 - [x] Login com credenciais válidas
-- [ ] Login com senha incorreta
-- [ ] Login com usuário inexistente
-- [ ] Login com campos em branco
 - [x] Redirecionamento após login bem-sucedido
+- [ ] Login com senha incorreta
+- [ ] Login com campos em branco
+- [ ] Login com usuário incorreto
+- [ ] Placeholders corretos nos Inputs
 
 --- 
 
