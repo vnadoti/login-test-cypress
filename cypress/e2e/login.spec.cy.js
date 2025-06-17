@@ -18,6 +18,7 @@ describe('Login Tests', () => {
     dateField: ".oxd-date-input-icon",
     dateCloseButton: ".--close",
     submitButton: "[type='submit']",
+    genericCombobox: ".oxd-select-text-input",
   }
   
   // Acessar a URl da Página a ser Testada
@@ -52,8 +53,35 @@ describe('Login Tests', () => {
     // Selecionar o Dia
     cy.get('.oxd-calendar-date').should('be.visible').contains(/^20$/).click();
     cy.get(selectorList.dateCloseButton).should('be.visible').click()
+    // Selecionar Box1
+    cy.get(selectorList.genericCombobox).eq(0).should('be.visible').click()
+    cy.get('.oxd-select-dropdown > :nth-child(3)').should('be.visible').click({ force: true})
+    // Selecionar Box2
+    cy.get(selectorList.genericCombobox).eq(1).should('be.visible').click()
+    cy.get('.oxd-select-dropdown > :nth-child(3)').should('be.visible').click({ force: true })
+    cy.get(selectorList.dateField).eq(1).should('be.visible').click()
+    // Selecionar o ano
+    cy.get('.oxd-calendar-selector-year').should('be.visible').click()
+    cy.get('.oxd-calendar-selector-year').should('be.visible').click()
+    cy.get('.oxd-calendar-dropdown > *').last().click();
+    // Selecionar o Mês
+    cy.get('.oxd-calendar-selector-month-selected').should('be.visible').click()
+    cy.get('.oxd-calendar-dropdown > *').last().click();
+    // Selecionar o Dia
+    cy.get('.oxd-calendar-date').should('be.visible').contains(/^12$/).click();
+    cy.get(selectorList.dateCloseButton).should('be.visible').click()
+    cy.get('.oxd-radio-input').eq(1).should('be.visible').click()
+    // Salvar
     cy.get(selectorList.submitButton).eq(0).click()
     cy.get('body').should('contain','Successfully Updated')
+    // Selecionar o Tipo Sanguineo
+    cy.get(selectorList.genericCombobox).eq(2).should('be.visible').click()
+    cy.get('.oxd-select-dropdown > :nth-child(3)').should('be.visible').click({ force: true })
+    cy.get("[options='']").should('be.visible').clear().type('Testando Campo')
+    // Salvar
+    cy.get(selectorList.submitButton).eq(1).click()
+    cy.get('body').should('contain','Successfully Updated')
+    
   })
 
   it('Login Credenciais Erradas - Fail', () => {
