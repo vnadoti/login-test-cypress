@@ -1,4 +1,3 @@
-
 import userData from '../fixtures/userData.json'
 import userForm from '../fixtures/userForm.json'
 import LoginPage from '../pages/loginPage.js'
@@ -16,6 +15,7 @@ describe('Login Tests', () => {
   it('Login Usuário e Senha Correto - Sucess', () => {
     loginPage.accessLoginPage()
     loginPage.loginCredentials(userData.userSucess.username, userData.userSucess.password)
+    loginPage.screenshotLogin()
   })
   
   it('E2E Update User - Sucess', () => {
@@ -29,41 +29,27 @@ describe('Login Tests', () => {
     profilePage.boxRadio()
     profilePage.typeBlood()
     profilePage.saveProfile()
+    loginPage.screenshotLogin()
   })
   
   it('Login Usuário e Senha errados - Fail', () => { 
     loginPage.accessLoginPage()
     loginPage.loginCredentials(userData.userFail.username, userData.userFail.password)
     loginPage.wrongAlert()
+    loginPage.screenshotLogin()
   })
- 
+  
   it('Login sem preencher Inputs - Fail', () => {
     loginPage.accessLoginPage()
     loginPage.loginWithoutCredentials()
+    loginPage.screenshotLogin()
   })
   
   it('Placeholder nos Inputs - Sucess', () => {
     loginPage.accessLoginPage()
     loginPage.placeholdersLogin()
+    loginPage.screenshotLogin()
   })
-
-  // it('Login sem preencher usuário valido - Fail', () => { 
-  //   // Insere credenciais e submete o formulario
-  //   cy.get(selectorList.usernameField).clear().type(userData.userFail.username)
-  //   cy.get(selectorList.passwordField).clear().type(userData.userSucess.password)
-  //   cy.get(selectorList.loginButton).click()
-  //   // Verifica se Aparece o Alerta de Erro
-  //   cy.get(selectorList.wrongAlert)
-  // })
-  
-  // it('Login sem preencher senha valida - Fail', () => { 
-  //   // Insere credenciais e submete o formulario
-  //   cy.get(selectorList.usernameField).clear().type(userData.userSucess.username)
-  //   cy.get(selectorList.passwordField).clear().type(userData.userFail.password)
-  //   cy.get(selectorList.loginButton).click()
-  //   // Verifica se Aparece o Alerta de Erro
-  //   cy.get(selectorList.wrongAlert)
-  // }) 
 
 }) 
 

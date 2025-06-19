@@ -28,14 +28,18 @@ class LoginPage {
   }
 
   placeholdersLogin() { 
-    cy.get(this.selectorList().usernameField).should('have.attr', 'placeholder', 'username');
-    cy.get(this.selectorList().passwordFieldField).should('have.attr', 'placeholder', 'password');
+    cy.get(this.selectorList().usernameField).should('have.attr', 'placeholder', 'Username');
+    cy.get(this.selectorList().passwordField).should('have.attr', 'placeholder', 'Password');
   }
   
   wrongAlert() {
     cy.get(this.selectorList().wrongAlert)
   }
   
+  screenshotLogin() { 
+    cy.screenshot('login-sucess', {capture: 'runner'})
+  }
+
 
 
 }
